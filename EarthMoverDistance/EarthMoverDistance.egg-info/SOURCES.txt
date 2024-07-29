@@ -1,0 +1,9 @@
+README.md
+emd.cpp
+emd_cuda.cu
+setup.py
+setup2.py
+EarthMoverDistance.egg-info/PKG-INFO
+EarthMoverDistance.egg-info/SOURCES.txt
+EarthMoverDistance.egg-info/dependency_links.txt
+EarthMoverDistance.egg-info/top_level.txt
