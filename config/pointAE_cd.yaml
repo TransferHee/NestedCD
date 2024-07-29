@@ -1,0 +1,21 @@
+model:
+  encoder: graph
+  decoder: bias
+  loss: cd
+  segment: False
+
+argument:
+  dropout: 0.5
+  feat_dims: 512
+  k: 16
+  shape: plane
+
+parameter:
+  batch_size: 128
+  num_workers: 4
+  epochs: 3000
+  num_points: 2048
+
+env:
+  gpu: 1
+  multi_gpu: False
