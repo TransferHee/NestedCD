@@ -1,4 +1,6 @@
-# docker 실행 명령어
+This repository contains the official PyTorch code for the Modified Chamfer Distance metric
+
+# Installation with docker 
 
 ```
 docker run --gpus all \
@@ -9,7 +11,7 @@ docker run --gpus all \
 conda activate py
 ```
 
-# configuration 파일 (config 폴더)
+# How to train Point-AE with configuration file
 
 ```
 model: 
@@ -38,28 +40,23 @@ env: # gpu 설정, multi gpu의 경우 옵션은 True로 변경
   multi_gpu: False
 ```
 
-## 비교하는 학습 모델
+## Baseline models
 
 1. PointNet (point + point)
 2. FoldingNet (graph + fold)
 
-# 학습 코드 실행 방법
+# Usage
 
-```python train_ae.py --config config/graph_enc_fold_dec_cd.yaml```
+```python train_ae.py --config {config/graph_enc_fold_dec_cd.yaml}```
 
---config 옵션에 config 파일 경로 입력
+After you train the model, the result is saved at lightning_logs dir.
+Trained weight also saved at checkpoints dir.
+You can visualize the result using tensorboard
 
-학습 후 lightning_logs 폴더에 version_{n} 으로 학습 결과가 저장됨   
-network weights 는 checkpoints 폴더에 저장됨  
-학습 로그 그래프는 lightning_logs를 tensorboard로 visualization함
-
-## 테스트 케이스 모두 학습 방법
+## Train with bash file
 
 ``sh train.sh``
 
-# 테스트 코드 실행
+# Test your trained model
 
 ```python test_ae.py```
-
-116 라인의 eval_model 함수에 인자로 ckpt 파일 경로를 입력함  
-테스트 데이터에 대해서 평가한 CD, EMD 값을 출력함 
