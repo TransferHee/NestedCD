@@ -1,6 +1,12 @@
-This repository contains the official PyTorch code for the Modified Chamfer Distance metric
+# Modified Chamfer Distance (MCD)
 
-# Installation with docker 
+This repository contains the official PyTorch code for the Modified Chamfer Distance metric from paper:
+
+[Novel Point Cloud Distance Metrics for Error Sensitivity Control in Deep Point Processing]
+
+## Requirements
+
+### Installation with docker 
 
 ```
 docker run --gpus all \
@@ -11,7 +17,15 @@ docker run --gpus all \
 conda activate py
 ```
 
-# How to train Point-AE with configuration file
+### Installtion with requirements.txt
+
+```
+pip install -r requirements.txt
+```
+
+## Usage
+
+### How to train Point-AE with configuration file
 
 ```
 model: 
@@ -35,28 +49,45 @@ parameter:
 dataset: # dataset (modelnet40, shape16)
   dataset: modelnet40
 
-env: # gpu 설정, multi gpu의 경우 옵션은 True로 변경
+env: # if you want to use multiple gpus, set the multi_gpu=True
   gpu: 1
   multi_gpu: False
 ```
 
-## Baseline models
+### Baseline models
 
 1. PointNet (point + point)
 2. FoldingNet (graph + fold)
+3. Point-AE (graph + BID)
 
-# Usage
+### Usage
 
-```python train_ae.py --config {config/graph_enc_fold_dec_cd.yaml}```
+1. You can run our code with prepared config file as follow.
+   
+```
+python train_ae.py --config {your_config_file}
+```
+
+2. if your file name is 'grah_enc_fold_dec_cd.yaml', then you can use like
+   
+```
+python train_ae.py --config config/graph_enc_fold_dec_cd.yaml
+```
 
 After you train the model, the result is saved at lightning_logs dir.
+
 Trained weight also saved at checkpoints dir.
+
 You can visualize the result using tensorboard
 
-## Train with bash file
+3. You can optimize your models with diverse metric with .sh file
 
-``sh train.sh``
+```
+sh train.sh
+```
 
-# Test your trained model
+4. After you trained your models, then you can test your result like
 
-```python test_ae.py```
+```
+python test_ae.py
+```
