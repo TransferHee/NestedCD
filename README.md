@@ -91,3 +91,7 @@ sh train.sh
 ```
 python test_ae.py
 ```
+
+## Acknowledgement
+
+We referenced a large portion of [ChamferDistancePytorch](https://github.com/ThibaultGROUEIX/ChamferDistancePytorch) as our original backbone.
