@@ -1,8 +1,8 @@
-# Modified Chamfer Distance (MCD)
+# Nested Chamfer Distance (NCD-n)
 
-This repository contains the official PyTorch code for the Modified Chamfer Distance metric from paper:
+This repository contains the official PyTorch code for the Nested Chamfer Distance metric from paper:
 
-[Novel Point Cloud Distance Metrics for Error Sensitivity Control in Deep Point Processing]
+[Novel Point Cloud Distance Metrics with Adjustable Error Sensitivity and Shape Compensation]
 
 ## Requirements
 
